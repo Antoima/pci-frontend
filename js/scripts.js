@@ -111,36 +111,38 @@ function generateCard(card) {
 
 function generateInfluencersTable(influencers) {
   return `
+      <div class="table-responsive">
         <table class="table table-bordered mt-4">
-            <thead style="background-color: #EAE6F5;">
+          <thead style="background-color: #EAE6F5;">
+            <tr>
+              <th>Influencer</th>
+              <th>Redes</th>
+              <th>N° servicios <i class="bi bi-arrow-up-down"></i></th>
+              <th><i class="bi bi-1-circle"></i> Valor total <i class="bi bi-arrow-up-down"></i></th>
+              <th><i class="bi bi-1-circle"></i> Cambiar</th>
+              <th>Eliminar</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${influencers
+              .map(
+                (influencer) => `
                 <tr>
-                    <th>Influencer</th>
-                    <th>Redes</th>
-                    <th>N° servicios <i class="bi bi-arrow-up-down"></i></th>
-                    <th><i class="bi bi-1-circle"></i> Valor total <i class="bi bi-arrow-up-down"></i></th>
-                    <th><i class="bi bi-1-circle"></i> Cambiar</th>
-                    <th>Eliminar</th>
-                    <th>Acción</th>
+                  <td>${influencer.name}</td>
+                  <td>${influencer.network}</td>
+                  <td>${influencer.services}</td>
+                  <td>${influencer.totalValue}</td>
+                  <td><button type="button" class="btn btn-outline-secondary btn-sm"><i class="bi bi-arrow-clockwise"></i></button></td>
+                  <td><button type="button" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i></button></td>
+                  <td><button type="button" class="btn btn-secondary btn-sm" style="background-color: #F1F1F1;">Revisar</button></td>
                 </tr>
-            </thead>
-            <tbody>
-                ${influencers
-                  .map(
-                    (influencer) => `
-                    <tr>
-                        <td>${influencer.name}</td>
-                        <td>${influencer.network}</td>
-                        <td>${influencer.services}</td>
-                        <td>${influencer.totalValue}</td>
-                        <td><button type="button" class="btn btn-outline-secondary btn-sm"><i class="bi bi-arrow-clockwise"></i></button></td>
-                        <td><button type="button" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i></button></td>
-                        <td><button type="button" class="btn btn-secondary btn-sm" style="background-color: #F1F1F1;">Revisar</button></td>
-                    </tr>
-                `
-                  )
-                  .join("")}
-            </tbody>
+              `
+              )
+              .join("")}
+          </tbody>
         </table>
+      </div>
     `;
 }
 
