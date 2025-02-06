@@ -64,20 +64,31 @@ function showMenu(menuId) {
 
 function generateHeader(header) {
   return `
-        <div class="d-flex justify-content-between align-items-center">
-            <div>
-                <h2>${header.title}</h2>
-                <p>${header.description}</p>
-            </div>
-            <div class="d-flex justify-content-end">
-                ${header.buttons
-                  .map(
-                    (button) =>
-                      `<button type="button" class="${button.class}">${button.text}</button>`
-                  )
-                  .join("")}
-            </div>
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <h2>${header.title}</h2>
+          <p>${header.description}</p>
         </div>
+        <div class="d-flex justify-content-end">
+          ${header.buttons
+            .map((button) => {
+              if (button.text === "Confirmar Influencer") {
+                return `
+                  <button type="button" class="${button.class}">
+                    Confirmar <span class="hide-on-mobile">Influencer</span>
+                  </button>
+                `;
+              } else {
+                return `
+                  <button type="button" class="${button.class}">
+                    ${button.text}
+                  </button>
+                `;
+              }
+            })
+            .join("")}
+        </div>
+      </div>
     `;
 }
 

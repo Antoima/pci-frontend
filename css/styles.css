@@ -1,6 +1,6 @@
 /* Settings */
 :root {
-  --background-color: #f8f9fa;
+  --background-color: #ffffff;
   --primary-color: #6e6660;
   --secondary-color: #904182;
   --grey-color: #d9d9d9;
@@ -79,6 +79,7 @@ p {
   transition: background-color 0.3s, border-bottom 0.3s;
   outline: none;
   box-shadow: none;
+  flex: 1 1 auto;
 }
 
 .btn-option:focus,
@@ -263,4 +264,233 @@ p {
 /* Utilities */
 .is-hidden {
   display: none;
+}
+/* Tamaño fijo para el botón en escritorio */
+.custom-btn.btn-primary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: #fff;
+  width: 200px; /* Ancho fijo */
+  white-space: nowrap; /* Evitar salto de línea */
+}
+
+/* Media Queries para tablets (entre 768px y 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Ajustes generales */
+  body {
+    font-size: 16px; /* Tamaño de fuente ligeramente más grande */
+  }
+
+  h2 {
+    font-size: 2rem; /* Tamaño de título más grande */
+  }
+
+  h4 {
+    font-size: 1.5rem; /* Tamaño de subtítulo más grande */
+  }
+
+  p {
+    font-size: 1.1rem; /* Tamaño de texto más grande */
+  }
+
+  /* Ajustes para el panel de botones */
+  .btn-option {
+    padding: 12px 18px; /* Padding ligeramente más grande */
+    font-size: 1.1rem; /* Tamaño de fuente más grande */
+  }
+
+  /* Ocultar "Influencer" en móviles */
+  .hide-on-mobile {
+    display: none;
+  }
+  /* Ajustes para las tarjetas */
+  .card-title {
+    font-size: 1.1rem; /* Tamaño de título de tarjeta más grande */
+  }
+
+  .card-text {
+    font-size: 1rem; /* Tamaño de texto de tarjeta más grande */
+  }
+
+  /* Ajustes para la tabla de influencers */
+  .table th,
+  .table td {
+    font-size: 0.9rem; /* Tamaño de fuente de la tabla más grande */
+  }
+
+  /* Ajustes para el resumen */
+  .summary-item {
+    font-size: 1rem; /* Tamaño de fuente del resumen más grande */
+  }
+
+  .summary-total {
+    font-size: 1.1rem; /* Tamaño de fuente del total más grande */
+  }
+
+  .summary-description {
+    font-size: 1rem; /* Tamaño de fuente de la descripción más grande */
+  }
+}
+
+/* Media Queries para dispositivos móviles (menores a 768px) */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .panel {
+    padding: 10px;
+  }
+
+  .btn-option {
+    padding: 10px 15px;
+    font-size: 1rem;
+    margin: 5px 0;
+    flex: 1 1 100%;
+  }
+
+  .btn-group {
+    flex-direction: column;
+  }
+
+  /* Ajustes para el botón "Confirmar Influencer" */
+  .btn.custom-btn {
+    font-size: 0.9rem; /* Reducir el tamaño de la fuente */
+    padding: 8px 12px; /* Ajustar el padding */
+    white-space: normal; /* Permitir salto de línea */
+    text-align: center; /* Centrar el texto */
+  }
+
+  /* Ajustes para las pestañas */
+  .btn-group {
+    flex-direction: column; /* Apilar verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+    margin: 0 auto; /* Centrar el grupo de botones */
+    width: 100%; /* Ocupar el 100% del ancho */
+  }
+
+  .btn-option {
+    width: 90%; /* Ancho del 90% para que no toquen los bordes */
+    margin: 5px 0; /* Margen entre botones */
+    text-align: center; /* Centrar el texto */
+  }
+
+  /* Ocultar "Influencer" en móviles */
+  .hide-on-mobile {
+    display: none;
+  }
+
+  .content-panel {
+    padding: 10px;
+  }
+
+  .card {
+    margin-bottom: 10px;
+  }
+
+  .card-body {
+    padding: 10px;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+  }
+
+  .table th,
+  .table td {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+
+  .table th i,
+  .table td i {
+    margin-left: 2px;
+  }
+
+  .summary-card {
+    padding: 10px;
+  }
+
+  .summary-item {
+    font-size: 0.9rem;
+  }
+
+  .summary-total {
+    font-size: 1rem;
+  }
+
+  .summary-description {
+    font-size: 0.9rem;
+  }
+
+  .objective-tag,
+  .interest-tags .tag {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  .btn-container .btn {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+
+  .btn-container .btn.active {
+    padding: 5px 10px;
+  }
+
+  /* Cambios específicos para la sección de "Proyección" */
+  .d-flex.justify-content-between.align-items-center {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .d-flex.justify-content-between.align-items-center .btn {
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .d-flex.justify-content-between.align-items-center .btn.custom-btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .btn-container {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .btn-container .btn {
+    flex: 1;
+    margin: 0 5px;
+  }
+
+  .d-flex.justify-content-between.align-items-center h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .d-flex.justify-content-between.align-items-center p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
 }
