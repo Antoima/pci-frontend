@@ -215,6 +215,15 @@ p {
   border-bottom: 1px solid #f0e8ee;
 }
 
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+
+.table {
+  min-width: 600px;
+}
 .summary-card {
   background-color: #fff;
   border: 1px solid var(--border-color);
@@ -270,65 +279,60 @@ p {
   background-color: var(--secondary-color);
   border-color: var(--secondary-color);
   color: #fff;
-  width: 200px; /* Ancho fijo */
+  width: 200px;
   white-space: nowrap; /* Evitar salto de línea */
 }
 
 /* Media Queries para tablets (entre 768px y 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
-  /* Ajustes generales */
   body {
-    font-size: 16px; /* Tamaño de fuente ligeramente más grande */
+    font-size: 16px;
   }
 
   h2 {
-    font-size: 2rem; /* Tamaño de título más grande */
+    font-size: 2rem;
   }
 
   h4 {
-    font-size: 1.5rem; /* Tamaño de subtítulo más grande */
+    font-size: 1.5rem;
   }
 
   p {
-    font-size: 1.1rem; /* Tamaño de texto más grande */
+    font-size: 1.1rem;
   }
 
-  /* Ajustes para el panel de botones */
   .btn-option {
-    padding: 12px 18px; /* Padding ligeramente más grande */
-    font-size: 1.1rem; /* Tamaño de fuente más grande */
+    padding: 12px 18px;
+    font-size: 1.1rem;
   }
 
-  /* Ocultar "Influencer" en móviles */
   .hide-on-mobile {
     display: none;
   }
-  /* Ajustes para las tarjetas */
+
   .card-title {
-    font-size: 1.1rem; /* Tamaño de título de tarjeta más grande */
+    font-size: 1.1rem;
   }
 
   .card-text {
-    font-size: 1rem; /* Tamaño de texto de tarjeta más grande */
+    font-size: 1rem;
   }
 
-  /* Ajustes para la tabla de influencers */
   .table th,
   .table td {
-    font-size: 0.9rem; /* Tamaño de fuente de la tabla más grande */
+    font-size: 0.9rem;
   }
 
-  /* Ajustes para el resumen */
   .summary-item {
-    font-size: 1rem; /* Tamaño de fuente del resumen más grande */
+    font-size: 1rem;
   }
 
   .summary-total {
-    font-size: 1.1rem; /* Tamaño de fuente del total más grande */
+    font-size: 1.1rem;
   }
 
   .summary-description {
-    font-size: 1rem; /* Tamaño de fuente de la descripción más grande */
+    font-size: 1rem;
   }
 }
 
