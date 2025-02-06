@@ -68,6 +68,19 @@ p {
   box-sizing: border-box;
 }
 
+/* Estilo para la línea divisora */
+.header-section {
+  position: relative;
+  padding-bottom: 10px; /* Espacio entre el contenido y la línea */
+}
+
+.header-divider {
+  height: 1px;
+  background-color: #dddddd;
+  width: 100%;
+  margin-top: 10px; /* Ajusta el espacio vertical si es necesario */
+}
+
 /* Components */
 .btn-option {
   background-color: transparent;
