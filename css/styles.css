@@ -21,15 +21,21 @@
   --text-card: left;
   --text-default: #6e6660;
   --font-default: 600;
+  --rotate: rotate(220deg);
   --light-transform: rotate(150deg);
   --light-display: inline-block;
 }
 
 /* Tools */
-@mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+.rotated-icon {
+  transform: var(--rotate);
+  display: var(--light-display);
+}
+
+.rotated-icon-light {
+  transform: var(--light-transform);
+  display: var(--light-display);
 }
 
 /* Generic */
@@ -83,14 +89,14 @@ p {
 
 .header-section {
   position: relative;
-  padding-bottom: 10px; /* Espacio entre el contenido y la línea */
+  padding-bottom: 10px;
 }
 
 .header-divider {
   height: 1px;
   background-color: #dddddd;
   width: 100%;
-  margin-top: 10px; /* Ajusta el espacio vertical si es necesario */
+  margin-top: 10px;
 }
 
 /* Objects */
@@ -99,7 +105,7 @@ p {
 }
 
 .card {
-  height: var(--size-card-grupo);
+  min-height: var(--size-card-grupo);
 }
 
 .card-body {
@@ -406,7 +412,6 @@ p {
 
 .modal-footer .btn {
   width: 100%;
-  /* margin-bottom: 20px; */
 }
 
 .modal-footer .btn:last-child {
@@ -518,6 +523,10 @@ p {
 
   p {
     font-size: 1rem;
+  }
+
+  .hidden {
+    display: none;
   }
 
   .panel {
