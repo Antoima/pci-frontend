@@ -71,28 +71,64 @@ function generateHeader(header) {
             <p>${header.description}</p>
           </div>
           <div class="d-flex justify-content-end">
-            ${header.buttons
-              .map((button) => {
-                if (button.text === "Confirmar Influencer") {
-                  return `
-                    <button type="button" class="${button.class}">
-                      Confirmar <span class="hide-on-mobile">Influencer</span>
-                    </button>
-                  `;
-                } else {
-                  return `
-                    <button type="button" class="${button.class}">
-                      ${button.text}
-                    </button>
-                  `;
-                }
-              })
-              .join("")}
+            ${generateButtons(header.buttons)}
           </div>
         </div>
         <div class="header-divider"></div> <!-- Línea divisora -->
       </div>
+      ${generateSaveModal()}
     `;
+}
+
+function generateButtons(buttons) {
+  return buttons
+    .map((button) => {
+      if (button.text === "Confirmar Influencer") {
+        return `
+            <button type="button" class="${button.class}">
+              Confirmar <span class="hide-on-mobile">Influencer</span>
+            </button>
+          `;
+      } else if (button.text === "Guardar") {
+        return `
+            <button type="button" class="${button.class}" data-bs-toggle="modal" data-bs-target="#saveModal">
+              ${button.text}
+            </button>
+          `;
+      } else {
+        return `
+            <button type="button" class="${button.class}">
+              ${button.text}
+            </button>
+          `;
+      }
+    })
+    .join("");
+}
+
+function generateSaveModal() {
+  return `
+    <div class="modal fade" id="saveModal" tabindex="-1" aria-labelledby="saveModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm"> <!-- Hacer el modal más angosto -->
+        <div class="modal-content">
+          <div class="modal-header justify-content-end pb-1">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+              <i class="bi bi-x-circle"></i>
+            </button>
+          </div>
+          <div class="modal-body p-4 pt-1">
+            <i class="bi bi-save2-fill mb-3""></i>
+            <h5 class="modal-title mb-3" id="saveModalLabel">Guardado</h5>
+            <p>Esta campaña se ha guardado correctamente. Encuéntrala en el menú > Mis campañas y continúa desde allí.</p>
+            
+            <button type="button" class="btn btn-secondary w-100 mb-4 custom-btn-modal-p" data-bs-dismiss="modal">Volver</button>
+            <button type="button" class="btn btn-secondary w-100 custom-btn-modal-s" data-bs-dismiss="modal">Ir a mis campañas</button>
+          </div>
+   
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 function generateCard(card) {
@@ -200,6 +236,7 @@ function getNetworkColor(network) {
   }
 }
 
+//Obtner el color segun categoria
 function getInterestBackgroundColor(interest) {
   switch (interest) {
     case "Salud":

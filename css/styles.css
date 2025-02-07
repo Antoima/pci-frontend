@@ -1,6 +1,7 @@
 /* Settings */
 :root {
   --background-color: #ffffff;
+  --background-tr: rgba(255, 255, 255, 0);
   --primary-color: #6e6660;
   --secondary-color: #b525ce;
   --title-color-alt: #5a626c;
@@ -18,6 +19,7 @@
   --padding-large: 20px;
   --size-card-grupo: 240px;
   --text-card: left;
+  --text-default: #6e6660;
   --font-default: 600;
   --light-transform: rotate(150deg);
   --light-display: inline-block;
@@ -368,6 +370,80 @@ p {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
+}
+
+/* Estilos para el modal personalizado */
+.modal-content {
+  border-radius: 10px;
+  padding: 20px;
+  padding-bottom: 40px;
+}
+
+.modal-dialog.modal-sm {
+  max-width: 500px;
+}
+
+.modal-header {
+  border-bottom: none; /* Quitar la línea divisora */
+}
+
+.modal-header .btn-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.modal-header .btn-close i {
+  font-size: 1.5rem;
+}
+
+.modal-body {
+  text-align: left;
+  padding: 20px;
+}
+
+.modal-body .modal-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.modal-body i {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #a6e6cb;
+}
+
+.modal-footer {
+  border-top: none;
+  padding: 20px;
+}
+
+.modal-footer .btn {
+  width: 100%;
+  /* margin-bottom: 20px; */
+}
+
+.modal-footer .btn:last-child {
+  margin-bottom: 0;
+}
+
+.custom-btn-modal-p {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  font-weight: var(--font-default);
+  color: #fff;
+  width: 100%;
+  height: 50px;
+}
+
+.custom-btn-modal-s {
+  background-color: var(--background-tr);
+  border-color: var(--primary-color);
+  font-weight: var(--font-default);
+  color: var(--text-default);
+  width: 100%;
+  height: 50px;
 }
 
 /* Media Queries para tablets (entre 768px y 1024px) */
