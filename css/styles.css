@@ -67,7 +67,6 @@ p {
   color: var(--primary-color);
 }
 
-/* Objects */
 .container-fluid {
   padding: 0;
   margin: 0;
@@ -82,7 +81,6 @@ p {
   box-sizing: border-box;
 }
 
-/* Estilo para la línea divisora */
 .header-section {
   position: relative;
   padding-bottom: 10px; /* Espacio entre el contenido y la línea */
@@ -95,83 +93,15 @@ p {
   margin-top: 10px; /* Ajusta el espacio vertical si es necesario */
 }
 
-/* Components */
-.btn-option {
-  background-color: transparent;
-  border: none;
-  color: #948d87;
-  margin: 0 5px;
-  padding: 15px 20px;
-  font-size: var(--font-size-small);
-  transition: background-color 0.3s, border-bottom 0.3s;
-  outline: none;
-  box-shadow: none;
-  flex: 1 1 auto;
-}
-
-.btn-option:focus,
-.btn-option.active {
-  outline: none;
-  box-shadow: none;
-}
-
-.btn-option.active {
-  background-color: #fff;
-  border: 1px solid var(--border-color);
-  border-bottom: none;
-  color: var(--primary-color);
-  position: relative;
-  top: 1px;
-}
-
-.custom-btn {
-  color: var(--secondary-color);
-  border-color: var(--secondary-color);
-  font-size: var(--font-size-small);
-  padding: var(--padding-medium) var(--padding-large);
-  width: 150px;
-  font-weight: var(--font-default);
-}
-
-/* Tamaño fijo para el botón en escritorio */
-.custom-btn.btn-primary {
-  background-color: var(--secondary-color);
-  border-color: var(--secondary-color);
-  color: #fff;
-  width: 220px;
-  font-weight: var(--font-default);
-  white-space: nowrap; /* Evitar salto de línea */
-}
-
-.custom-btn-grey {
-  background-color: var(--grey-color);
-  border-color: var(--grey-color);
-  color: var(--primary-color);
-  font-size: var(--font-size-small);
-  font-weight: var(--font-default);
-  padding: var(--padding-medium) var(--padding-large);
-  width: auto;
-}
-
-.small-btn {
-  padding: var(--padding-small) var(--padding-medium);
-  font-size: var(--font-size-xsmall);
-}
-
-.content-panel {
-  padding-left: var(--padding-large);
-  padding-right: var(--padding-large);
-}
-
-.content-panel .d-flex {
-  align-items: center;
-}
+/* Objects */
 .card-seg {
   height: auto;
 }
+
 .card {
   height: var(--size-card-grupo);
 }
+
 .card-body {
   padding: var(--padding-large);
   text-align: var(--text-card);
@@ -204,16 +134,6 @@ p {
   font-weight: bold;
 }
 
-.rotated-icon {
-  transform: rotate(230deg);
-  display: var(--light-display);
-}
-
-.rotated-icon-light {
-  transform: var(--light-transform);
-  display: var(--light-display);
-}
-
 .btn-container {
   background-color: var(--grey-color);
   padding: var(--padding-small);
@@ -234,6 +154,10 @@ p {
   color: var(--primary-color);
 }
 
+.table {
+  min-width: 600px;
+}
+
 .table th,
 .table td {
   text-align: left;
@@ -241,7 +165,6 @@ p {
   border: none;
 }
 
-/* Asegurar alineación de íconos en columna "Redes" */
 .table td i {
   vertical-align: middle;
 }
@@ -250,7 +173,6 @@ p {
   background-color: #eae6f5;
 }
 
-/* Estilos para la tabla */
 .table th {
   padding: 16px 8px;
   text-align: left;
@@ -288,9 +210,6 @@ p {
   border-radius: 8%;
 }
 
-.table {
-  min-width: 600px;
-}
 .summary-card {
   background-color: #fff;
   border: 1px solid var(--border-color);
@@ -338,6 +257,77 @@ p {
   margin-bottom: 5px;
 }
 
+/* Components */
+.btn-option {
+  background-color: transparent;
+  border: none;
+  color: #948d87;
+  margin: 0 5px;
+  padding: 15px 20px;
+  font-size: var(--font-size-small);
+  transition: background-color 0.3s, border-bottom 0.3s;
+  outline: none;
+  box-shadow: none;
+  flex: 1 1 auto;
+}
+
+.btn-option:focus,
+.btn-option.active {
+  outline: none;
+  box-shadow: none;
+}
+
+.btn-option.active {
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  border-bottom: none;
+  color: var(--primary-color);
+  position: relative;
+  top: 1px;
+}
+
+.custom-btn {
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  font-size: var(--font-size-small);
+  padding: var(--padding-medium) var(--padding-large);
+  width: 150px;
+  font-weight: var(--font-default);
+}
+
+.custom-btn.btn-primary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: #fff;
+  width: 220px;
+  font-weight: var(--font-default);
+  white-space: nowrap; /* Evitar salto de línea */
+}
+
+.custom-btn-grey {
+  background-color: var(--grey-color);
+  border-color: var(--grey-color);
+  color: var(--primary-color);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-default);
+  padding: var(--padding-medium) var(--padding-large);
+  width: auto;
+}
+
+.small-btn {
+  padding: var(--padding-small) var(--padding-medium);
+  font-size: var(--font-size-xsmall);
+}
+
+.content-panel {
+  padding-left: var(--padding-large);
+  padding-right: var(--padding-large);
+}
+
+.content-panel .d-flex {
+  align-items: center;
+}
+
 /* Utilities */
 .is-hidden {
   display: none;
@@ -354,6 +344,7 @@ p {
   color: var(--secondary-color);
   padding-bottom: 10px;
 }
+
 .summary-add {
   color: var(--primary-color);
 }
@@ -364,12 +355,6 @@ p {
   border-radius: var(--border-radius);
   display: inline-block;
   margin-bottom: 20px;
-}
-
-.summary-item {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
 }
 
 /* Estilos para el modal personalizado */
@@ -468,6 +453,9 @@ p {
     padding: 12px 18px;
     font-size: 1.1rem;
   }
+  .custom-btn-grey {
+    font-size: 1rem;
+  }
 
   .hide-on-mobile {
     display: none;
@@ -496,6 +484,21 @@ p {
 
   .summary-description {
     font-size: 1rem;
+  }
+
+  /* Cambios específicos para la sección de "Proyección" */
+  .projection-section .d-flex.justify-content-between.align-items-center {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .projection-section .d-flex.justify-content-between.align-items-center .btn {
+    width: 130px;
+    height: 50px;
+    margin: 10px;
+    text-align: center;
+    font-size: 1rem;
+    padding: 10px;
   }
 }
 
@@ -532,26 +535,24 @@ p {
     flex-direction: column;
   }
 
-  /* Ajustes para el botón "Confirmar Influencer" */
   .btn.custom-btn {
-    font-size: 0.9rem; /* Reducir el tamaño de la fuente */
-    padding: 8px 12px; /* Ajustar el padding */
-    white-space: normal; /* Permitir salto de línea */
-    text-align: center; /* Centrar el texto */
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    white-space: normal;
+    text-align: center;
   }
 
-  /* Ajustes para las pestañas */
   .btn-group {
-    flex-direction: column; /* Apilar verticalmente */
-    align-items: center; /* Centrar horizontalmente */
-    margin: 0 auto; /* Centrar el grupo de botones */
-    width: 100%; /* Ocupar el 100% del ancho */
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
   }
 
   .btn-option {
-    width: 90%; /* Ancho del 90% para que no toquen los bordes */
-    margin: 5px 0; /* Margen entre botones */
-    text-align: center; /* Centrar el texto */
+    width: 90%;
+    margin: 5px 0;
+    text-align: center;
   }
 
   /* Ocultar "Influencer" en móviles */
@@ -622,7 +623,8 @@ p {
   }
 
   /* Cambios específicos para la sección de "Proyección" */
-  .d-flex.justify-content-between.align-items-center {
+  .projection-section .d-flex.justify-content-between.align-items-center,
+  .influencers-section .d-flex.justify-content-between.align-items-center {
     flex-direction: column;
     align-items: flex-start;
   }

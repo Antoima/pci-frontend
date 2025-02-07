@@ -16,7 +16,7 @@ function showMenu(menuId) {
     content = `
             ${generateHeader(menu.content.header)}
             <div class="row mt-4">
-                <div class="col-12 col-lg-9">
+                <div class="col-12 col-lg-9 influencers-section">
                     <div class="row">
                         ${menu.content.cards.map(generateCard).join("")}
                     </div>
@@ -64,7 +64,7 @@ function showMenu(menuId) {
 
 function generateHeader(header) {
   return `
-      <div class="header-section"> <!-- Contenedor principal -->
+      <div class="header-section projection-section"> 
         <div class="d-flex justify-content-between align-items-center">
           <div>
             <h2>${header.title}</h2>
