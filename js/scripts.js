@@ -61,7 +61,7 @@ function showMenu(menuId) {
     activeButton.classList.add("active");
   }
 }
-
+// Cabecera de la sección de proyección
 function generateHeader(header) {
   return `
       <div class="header-section projection-section"> 
@@ -105,11 +105,11 @@ function generateButtons(buttons) {
     })
     .join("");
 }
-
+//Modal adaptado
 function generateSaveModal() {
   return `
     <div class="modal fade" id="saveModal" tabindex="-1" aria-labelledby="saveModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-sm"> <!-- Hacer el modal más angosto -->
+      <div class="modal-dialog modal-dialog-centered modal-sm"> 
         <div class="modal-content">
           <div class="modal-header justify-content-end pb-1">
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
@@ -117,7 +117,7 @@ function generateSaveModal() {
             </button>
           </div>
           <div class="modal-body p-4 pt-1">
-            <i class="bi bi-save2-fill mb-3""></i>
+            <i class="bi bi-save2 mb-3""></i>
             <h5 class="modal-title mb-3" id="saveModalLabel">Guardado</h5>
             <p>Esta campaña se ha guardado correctamente. Encuéntrala en el menú > Mis campañas y continúa desde allí.</p>
             
@@ -159,8 +159,8 @@ function generateInfluencersTable(influencers) {
             <tr>
               <th >Influencer</th>
               <th >Redes</th>
-              <th >N° servicios <i class="bi bi-arrow-down-up"></i></th>
-              <th ><i class="bi bi-1-circle"></i> Valor total <i class="bi bi-arrow-down-up"></i></th>
+              <th >N° servicios <i class="bi bi-arrow-down-up hidden"></i></th>
+              <th ><i class="bi bi-1-circle"></i> Valor total <i class="bi bi-arrow-down-up hidden"></i></th>
               <th ><i class="bi bi-1-circle"></i> Cambiar</th>
               <th >Eliminar</th>
               <th >Acción</th>
@@ -195,8 +195,8 @@ function generateInfluencersTable(influencers) {
                   </td>
                   <td>${influencer.services}</td>
                   <td>${influencer.totalValue}</td>
-                  <td><button type="button" class="btn btn-outline-secondary btn-sm"><i class="bi bi-arrow-repeat rotated-icon-light"></i></button></td>
-                  <td><button type="button" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i></button></td>
+                  <td><button type="button" class="btn btn-outline-secondary "><i class="bi bi-arrow-repeat rotated-icon-light"></i></button></td>
+                  <td><button type="button" class="btn btn-outline-danger "><i class="bi bi-trash"></i></button></td>
                   <td><button type="button" class="btn btn-secondary ">Revisar</button></td>
                 </tr>
               `
@@ -249,7 +249,7 @@ function getInterestBackgroundColor(interest) {
       return "#FFFFFF";
   }
 }
-
+//Resumen del proceso
 function generateSummary(summary) {
   return `
         <div class="card-seg summary-card">
@@ -312,7 +312,7 @@ const database = {
         header: {
           title: "Proyección de tu campaña con los influencers elegidos",
           description:
-            "Una Guía clara de lo que tu campaña puede lograr en alcance, interacción y ventas.",
+            "Una guía clara de lo que tu campaña puede lograr en alcance, interacción y ventas.",
           buttons: [
             {
               text: "Atrás",
