@@ -200,49 +200,68 @@ function getNetworkColor(network) {
   }
 }
 
+function getInterestBackgroundColor(interest) {
+  switch (interest) {
+    case "Salud":
+      return "#E8E6F5";
+    case "Ejercicio y Fitness":
+      return "#EBEBEB";
+    case "Ergonomía":
+      return "#ECF3F6";
+    default:
+      return "#FFFFFF";
+  }
+}
+
 function generateSummary(summary) {
   return `
         <div class="card-seg summary-card">
             <div class="card-body">
                 <h5 class="card-title">Resumen</h5>
-                <div class="summary-item">
-                    <i class="bi bi-people"></i> Redes: <span class="summary-value">${
-                      summary.networks
-                    }</span>
+                <div class="summary-item d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-globe me-2"></i> Redes:
+                    </div>
+                    <span class="summary-add">${summary.networks}</span>
                 </div>
-                <div class="summary-item">
-                    <i class="bi bi-briefcase"></i> Servicios: <span class="summary-value">${
-                      summary.services
-                    }</span>
+                <hr class="divider">
+                <div class="summary-item d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-grid me-2"></i> Servicios:
+                    </div>
+                    <span class="summary-add">${summary.services}</span>
                 </div>
-                <div class="summary-item">
-                    <i class="bi bi-person"></i> Influencers: <span class="summary-value">${
-                      summary.influencers
-                    }</span>
+                <hr class="divider">
+                <div class="summary-item d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-person-circle me-2"></i> Influencers:
+                    </div>
+                    <span class="summary-add">${summary.influencers}</span>
                 </div>
                 <div class="summary-total">
-                    <strong>Valor Total:</strong> <span class="summary-value">${
+                    Valor Total: <span class="summary-value">${
                       summary.totalValue
                     }</span>
                 </div>
                 <p class="summary-description">${summary.description}</p>
-                <h6>CTR</h6>
-                <button type="button" class="btn btn-secondary btn-sm">${
-                  summary.ctr
-                }</button>
+                <h6>Tu presupuesto:</h6>
+                <div class="ctr-tag">${summary.ctr}</div>
                 <h6>Objetivo</h6>
                 <div class="objective-tag">${summary.objective}</div>
                 <h6>Intereses</h6>
                 <div class="interest-tags">
                     ${summary.interests
-                      .map((interest) => `<span class="tag">${interest}</span>`)
+                      .map((interest) => {
+                        const backgroundColor =
+                          getInterestBackgroundColor(interest);
+                        return `<span class="tag" style="background-color: ${backgroundColor}; ">${interest}</span>`;
+                      })
                       .join("")}
                 </div>
             </div>
         </div>
     `;
 }
-
 // Data obtenida de una API o base de datos
 const database = {
   menus: {
@@ -353,12 +372,12 @@ const database = {
           },
         ],
         summary: {
-          networks: 5,
-          services: 10,
-          influencers: 3,
+          networks: 3,
+          services: 18,
+          influencers: 6,
           totalValue: "450 CRTS",
           description:
-            "Este es un resumen de tu campaña con los influencers seleccionados.",
+            "Valor total de la campaña. Puede variar según la negociación con los influencers. 1 crédito = 1 dólar.",
           ctr: "500 CRTS",
           objective: "Aumentar ventas y tráfico web",
           interests: ["Salud", "Ejercicio y Fitness", "Ergonomía"],
