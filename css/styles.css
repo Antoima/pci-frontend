@@ -1,3 +1,4 @@
+/*lo ideal para mi seria separarlo en archivos, creando un archivo de configuracion principal con todo lo necesario para reutlizar*/
 /* Settings */
 :root {
   --background-color: #ffffff;
@@ -47,7 +48,7 @@ body {
   background-color: var(--background-color);
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Evitar desbordamiento horizontal */
+  overflow-x: hidden;
 }
 
 /* Elements */
