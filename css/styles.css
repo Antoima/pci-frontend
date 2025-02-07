@@ -2,11 +2,11 @@
 :root {
   --background-color: #ffffff;
   --primary-color: #6e6660;
-  --secondary-color: #904182;
+  --secondary-color: #b525ce;
   --grey-color: #d9d9d9;
   --light-grey-color: #f1f1f1;
   --border-color: #ccc;
-  --font-size-large: 2.5rem;
+  --font-size-large: 2.2rem;
   --font-size-medium: 1.5rem;
   --font-size-small: 1.2rem;
   --font-size-xsmall: 0.9rem;
@@ -14,6 +14,8 @@
   --padding-small: 5px;
   --padding-medium: 10px;
   --padding-large: 20px;
+  --size-card-grupo: 240px;
+  --text-card: left;
 }
 
 /* Tools */
@@ -116,13 +118,17 @@ p {
   font-size: var(--font-size-small);
   padding: var(--padding-medium) var(--padding-large);
   width: 150px;
+  font-weight: 600;
 }
 
+/* Tamaño fijo para el botón en escritorio */
 .custom-btn.btn-primary {
   background-color: var(--secondary-color);
   border-color: var(--secondary-color);
   color: #fff;
-  width: auto;
+  width: 220px;
+  font-weight: 600;
+  white-space: nowrap; /* Evitar salto de línea */
 }
 
 .custom-btn-grey {
@@ -147,29 +153,42 @@ p {
 .content-panel .d-flex {
   align-items: center;
 }
-
-.card {
-  border: none;
-  border-radius: var(--border-radius);
+.card-seg {
+  height: auto;
 }
-
+.card {
+  height: var(--size-card-grupo);
+}
 .card-body {
   padding: var(--padding-large);
-}
-
-.card-title {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-}
-
-.card-text {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
+  text-align: var(--text-card);
 }
 
 .card-icon {
   font-size: 2rem;
   margin-bottom: 1rem;
+  text-align: var(--text-card);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  text-align: var(--text-card);
+}
+
+.card-text {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: var(--text-card);
+}
+
+.card-value-footer {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  text-align: var(--text-card);
+  color: #6f6255;
+  font-weight: bold;
 }
 
 .rotated-icon {
@@ -286,14 +305,6 @@ p {
 /* Utilities */
 .is-hidden {
   display: none;
-}
-/* Tamaño fijo para el botón en escritorio */
-.custom-btn.btn-primary {
-  background-color: var(--secondary-color);
-  border-color: var(--secondary-color);
-  color: #fff;
-  width: 200px;
-  white-space: nowrap; /* Evitar salto de línea */
 }
 
 /* Media Queries para tablets (entre 768px y 1024px) */

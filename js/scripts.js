@@ -97,18 +97,21 @@ function generateHeader(header) {
 
 function generateCard(card) {
   return `
-        <div class="col-12 col-md-6 col-lg-3 mb-4">
-            <div class="card" style="background-color: ${card.bgColor};">
-                <div class="card-body">
-                    <div class="card-icon">
-                        <i class="${card.icon}"></i>
-                    </div>
-                    <h5 class="card-title">${card.title}</h5>
-                    <p class="card-text">${card.description}</p>
-                    <p class="card-text">${card.value} <i class="bi bi-arrow-up-right"></i></p>
-                </div>
+      <div class="col-12 col-md-6 col-lg-3 mb-4">
+        <div class="card" style="background-color: ${card.bgColor};">
+          <div class="card-body d-flex flex-column align-items-start">
+            <div class="card-icon">
+              <i class="${card.icon}"></i>
             </div>
+            <h5 class="card-title">${card.title}</h5>
+            <p class="card-text">${card.description}</p>
+            <!-- Pie de tarjeta fijo -->
+            <div class="card-value-footer mt-auto">
+              ${card.value} <i class="bi bi-arrow-up-right"></i>
+            </div>
+          </div>
         </div>
+      </div>
     `;
 }
 
@@ -151,7 +154,7 @@ function generateInfluencersTable(influencers) {
 
 function generateSummary(summary) {
   return `
-        <div class="card summary-card">
+        <div class="card-seg summary-card">
             <div class="card-body">
                 <h5 class="card-title">Resumen</h5>
                 <div class="summary-item">
