@@ -23,8 +23,8 @@ function showMenu(menuId) {
                     <div class="d-flex justify-content-between align-items-center mt-4">
                         <div>
                             <h5>Influencers elegidos</h5>
-                            <button type="button" class="btn btn-secondary me-2 custom-btn-grey">
-                                <i class="bi bi-arrow-clockwise"></i> Generar nuevas recomendaciones
+                            <button type="button" class="btn btn-secondary custom-btn-grey">
+                                <i class="bi bi-arrow-repeat rotated-icon-light"></i> Generar nuevas recomendaciones
                             </button>
                             <button type="button" class="btn btn-secondary custom-btn-grey">
                                 <i class="bi bi-pencil"></i> Ajustar detalles del brief
@@ -107,7 +107,7 @@ function generateCard(card) {
             <p class="card-text">${card.description}</p>
             <!-- Pie de tarjeta fijo -->
             <div class="card-value-footer mt-auto">
-              ${card.value} <i class="bi bi-arrow-up-right"></i>
+              ${card.value} <i class="${card.icon_seg}"></i>
             </div>
           </div>
         </div>
@@ -119,15 +119,15 @@ function generateInfluencersTable(influencers) {
   return `
       <div class="table-responsive">
         <table class="table table-bordered mt-4">
-          <thead style="background-color: #EAE6F5;">
+          <thead >
             <tr>
-              <th>Influencer</th>
-              <th>Redes</th>
-              <th>N° servicios <i class="bi bi-arrow-up-down"></i></th>
-              <th><i class="bi bi-1-circle"></i> Valor total <i class="bi bi-arrow-up-down"></i></th>
-              <th><i class="bi bi-1-circle"></i> Cambiar</th>
-              <th>Eliminar</th>
-              <th>Acción</th>
+              <th >Influencer</th>
+              <th >Redes</th>
+              <th >N° servicios <i class="bi bi-arrow-down-up"></i></th>
+              <th ><i class="bi bi-1-circle"></i> Valor total <i class="bi bi-arrow-down-up"></i></th>
+              <th ><i class="bi bi-1-circle"></i> Cambiar</th>
+              <th >Eliminar</th>
+              <th >Acción</th>
             </tr>
           </thead>
           <tbody>
@@ -135,13 +135,33 @@ function generateInfluencersTable(influencers) {
               .map(
                 (influencer) => `
                 <tr>
-                  <td>${influencer.name}</td>
-                  <td>${influencer.network}</td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <img src="${influencer.photo}" alt="${
+                  influencer.name
+                }" class="rounded-circle me-2" style="width: 40px; height: 40px;" />
+                      ${influencer.name}
+                    </div>
+                  </td>
+                  <td>
+                    ${influencer.network
+                      .split(",")
+                      .map(
+                        (network) => `
+                        <i class="bi ${getNetworkIcon(
+                          network.trim()
+                        )} me-2" style="color: ${getNetworkColor(
+                          network.trim()
+                        )}; font-size: 1.2rem;"></i>
+                      `
+                      )
+                      .join("")}
+                  </td>
                   <td>${influencer.services}</td>
                   <td>${influencer.totalValue}</td>
-                  <td><button type="button" class="btn btn-outline-secondary btn-sm"><i class="bi bi-arrow-clockwise"></i></button></td>
+                  <td><button type="button" class="btn btn-outline-secondary btn-sm"><i class="bi bi-arrow-repeat rotated-icon-light"></i></button></td>
                   <td><button type="button" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i></button></td>
-                  <td><button type="button" class="btn btn-secondary btn-sm" style="background-color: #F1F1F1;">Revisar</button></td>
+                  <td><button type="button" class="btn btn-secondary ">Revisar</button></td>
                 </tr>
               `
               )
@@ -150,6 +170,34 @@ function generateInfluencersTable(influencers) {
         </table>
       </div>
     `;
+}
+
+// Función para obtener el ícono de la red social
+function getNetworkIcon(network) {
+  switch (network.toLowerCase()) {
+    case "tiktok":
+      return "bi-tiktok";
+    case "facebook":
+      return "bi-facebook";
+    case "instagram":
+      return "bi-instagram";
+    default:
+      return "bi-globe"; // Ícono por defecto
+  }
+}
+
+// Función para obtener el color de la red social
+function getNetworkColor(network) {
+  switch (network.toLowerCase()) {
+    case "tiktok":
+      return "#000000"; // Negro (TikTok)
+    case "facebook":
+      return "#1877F2"; // Azul (Facebook)
+    case "instagram":
+      return "#E4405F"; // Rosa (Instagram)
+    default:
+      return "#6F6255"; // Color por defecto
+  }
 }
 
 function generateSummary(summary) {
@@ -200,7 +248,7 @@ const database = {
   menus: {
     menu1: {
       title: "Completar brief",
-      content: "<p>Contenido del Menú 1: Completar brief</p>",
+      content: "<p>Completar brief</p>",
     },
     menu2: {
       title: "Proyección de tu campaña",
@@ -231,6 +279,7 @@ const database = {
             value: "141,487",
             icon: "bi bi-eye",
             bgColor: "#A6E8CC",
+            icon_seg: "bi bi-arrow-up-right",
           },
           {
             title: "Engagement total estimado",
@@ -238,6 +287,7 @@ const database = {
             value: "240,772",
             icon: "bi bi-magnet rotated-icon",
             bgColor: "#EEDCEC",
+            icon_seg: "bi bi-arrow-up-right",
           },
           {
             title: "CPM total estimado",
@@ -246,6 +296,7 @@ const database = {
             value: "1,000",
             icon: "bi bi-binoculars",
             bgColor: "#DCF6EB",
+            icon_seg: "bi bi-arrow-down-right",
           },
           {
             title: "Interacción total estimada",
@@ -254,44 +305,51 @@ const database = {
             value: "5,700",
             icon: "bi bi-hand-index",
             bgColor: "#FED992",
+            icon_seg: "bi bi-arrow-up-right",
           },
         ],
         influencers: [
           {
-            name: "Influencer 1",
-            network: "Instagram",
-            services: 5,
+            name: "@salud_ays",
+            network: "TikTok, Facebook, Instagram",
+            services: "3 servicios",
             totalValue: "50 CRTS",
+            photo: "https://randomuser.me/api/portraits/men/1.jpg",
           },
           {
-            name: "Influencer 2",
-            network: "Twitter",
-            services: 3,
+            name: "@salud_ays",
+            network: "TikTok, Facebook, Instagram",
+            services: "6 servicios",
             totalValue: "90 CRTS",
+            photo: "https://randomuser.me/api/portraits/men/2.jpg",
           },
           {
-            name: "Influencer 3",
-            network: "Facebook",
-            services: 4,
+            name: "@salud_ays",
+            network: "TikTok, Instagram",
+            services: "2 servicios",
             totalValue: "40 CRTS",
+            photo: "https://randomuser.me/api/portraits/men/3.jpg",
           },
           {
-            name: "Influencer 4",
-            network: "YouTube",
-            services: 2,
+            name: "@salud_ays",
+            network: "Facebook, Instagram",
+            services: "4 servicios",
             totalValue: "35 CRTS",
+            photo: "https://randomuser.me/api/portraits/men/4.jpg",
           },
           {
-            name: "Influencer 5",
-            network: "TikTok",
-            services: 6,
+            name: "@salud_ays",
+            network: "Facebook, Instagram",
+            services: "2 servicios",
             totalValue: "80 CRTS",
+            photo: "https://randomuser.me/api/portraits/men/5.jpg",
           },
           {
-            name: "Influencer 6",
-            network: "TikTok",
-            services: 6,
+            name: "@salud_ays",
+            network: "Instagram",
+            services: "1 servicio",
             totalValue: "10 CRTS",
+            photo: "https://randomuser.me/api/portraits/men/6.jpg",
           },
         ],
         summary: {
@@ -309,7 +367,7 @@ const database = {
     },
     menu3: {
       title: "Enviar campaña",
-      content: "<p>Contenido del Menú 3: Enviar campaña</p>",
+      content: "<p>Enviar campaña</p>",
     },
   },
 };

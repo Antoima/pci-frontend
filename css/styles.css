@@ -3,6 +3,7 @@
   --background-color: #ffffff;
   --primary-color: #6e6660;
   --secondary-color: #b525ce;
+  --title-color-alt: #5a626c;
   --grey-color: #d9d9d9;
   --light-grey-color: #f1f1f1;
   --border-color: #ccc;
@@ -16,6 +17,9 @@
   --padding-large: 20px;
   --size-card-grupo: 240px;
   --text-card: left;
+  --font-default: 600;
+  --light-transform: rotate(150deg);
+  --light-display: inline-block;
 }
 
 /* Tools */
@@ -48,6 +52,11 @@ h4 {
   font-size: var(--font-size-medium);
   color: var(--primary-color);
   margin: 0;
+}
+
+h5 {
+  color: var(--title-color-alt);
+  font-weight: var(--font-default);
 }
 
 p {
@@ -118,7 +127,7 @@ p {
   font-size: var(--font-size-small);
   padding: var(--padding-medium) var(--padding-large);
   width: 150px;
-  font-weight: 600;
+  font-weight: var(--font-default);
 }
 
 /* Tamaño fijo para el botón en escritorio */
@@ -127,15 +136,16 @@ p {
   border-color: var(--secondary-color);
   color: #fff;
   width: 220px;
-  font-weight: 600;
+  font-weight: var(--font-default);
   white-space: nowrap; /* Evitar salto de línea */
 }
 
 .custom-btn-grey {
   background-color: var(--grey-color);
   border-color: var(--grey-color);
-  color: #000;
+  color: var(--primary-color);
   font-size: var(--font-size-small);
+  font-weight: var(--font-default);
   padding: var(--padding-medium) var(--padding-large);
   width: auto;
 }
@@ -192,8 +202,13 @@ p {
 }
 
 .rotated-icon {
-  transform: rotate(180deg);
-  display: inline-block;
+  transform: rotate(230deg);
+  display: var(--light-display);
+}
+
+.rotated-icon-light {
+  transform: var(--light-transform);
+  display: var(--light-display);
 }
 
 .btn-container {
@@ -218,13 +233,29 @@ p {
 
 .table th,
 .table td {
+  text-align: left;
   vertical-align: middle;
-  text-align: center;
   border: none;
 }
 
-.table th {
+/* Asegurar alineación de íconos en columna "Redes" */
+.table td i {
+  vertical-align: middle;
+}
+
+.table thead {
   background-color: #eae6f5;
+}
+
+/* Estilos para la tabla */
+.table th {
+  padding: 16px 8px;
+  text-align: left;
+  color: var(--title-color-alt);
+}
+
+.rounded-circle {
+  border-radius: 50%;
 }
 
 .table th i,
@@ -244,13 +275,14 @@ p {
 
 .table-bordered th,
 .table-bordered td {
-  border-bottom: 1px solid #f0e8ee;
+  border-bottom: 3px solid #f0e8ee;
 }
 
 .table-responsive {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   width: 100%;
+  border-radius: 8%;
 }
 
 .table {
